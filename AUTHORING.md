@@ -130,14 +130,11 @@ route, audit tool or native skill for part of the job, use it. Keep the data con
 the accessibility and no-WebGL paths, the book-content rule, the budgets and the gates fixed. Load any new runtime
 dependency lazily with the bench, name it in your report with its size, and say what worked so it can be added here.
 
-## How the reviewer checks your work
+## How reviewers and CI verify your work
 
-Before you hand over, check your own work like a reviewer would and repair it, over more than one round: physics
-against the book, board arithmetic, every gate, and your code read against the 12-point rubric in
-`docs/solutions/agent-skill/scifunlab-solution-lab/references/quality-rubric.md`. Known symptoms and fixes are in
-`references/repair-playbook.md` beside it.
+Before opening a PR or finalizing a solution/kit, verify your own work against the 12-point rubric in
+`docs/solutions/agent-skill/scifunlab-solution-lab/references/quality-rubric.md` (see common causes and fixes in
+`docs/solutions/agent-skill/scifunlab-solution-lab/references/repair-playbook.md`). Check every step by hand:
+physics values against the textbook, chalkboard arithmetic (`<= 38` chars per line), and all static gates (`npm run solutions:generate`, `npm run solutions:check`, `npm run typecheck`, `npm run lint`).
 
-The reviewer merges your files, registers them, builds, and runs `scripts/lab-shots.cjs` at 1280×900 and 390×844:
-Guess → fire → stars; Solve steps with the board writing and marks; What if; labels; phone badges. Then the speed and
-size gates: bundle budget, Lighthouse (accessibility ≥ 0.98, performance ≥ 0.9). Physics that does not match the book
-answer, a floating part, or a board line that does not add up is sent back.
+To start a new solution file with valid imports and citations in one command, run `npm run solutions:new -- --list` to inspect books and kits, then scaffold with `npm run solutions:new`. In live browser verification (`npm run build && npm run start`), check both desktop (`1280×900`) and mobile (`390×844`) viewports plus `?nowebgl` poster fallback: Guess → release/fire → stars; Solve step switching with chalkboard marks and part highlights; What if tuning; non-overlapping labels; and zero console/page errors. Main-repo PRs also satisfy bundle budget, SSR boundaries (`npm run test:task5:bundle && npm run test:task5:ssr && npm run test:task5:browser`), and Lighthouse targets (`accessibility >= 0.98`, `performance >= 0.9`). Physics that contradicts the book answer, floating instrument geometry, or board arithmetic that fails to add up will be requested for revision.

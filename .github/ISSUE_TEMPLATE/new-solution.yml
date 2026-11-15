@@ -1,0 +1,49 @@
+name: Request or Claim a Textbook Solution
+description: Propose a textbook problem to animate or claim one for your next PR
+title: "[Solution]: "
+labels: ["good first issue", "solution"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Want to add a worked interactive lab using an existing kit (`projectile`, `blocks`, or `field`)? Fill out the details below so maintainers and fellow contributors know it is claimed!
+  - type: input
+    id: book
+    attributes:
+      label: Textbook ID
+      placeholder: hc-verma
+      value: hc-verma
+    validations:
+      required: true
+  - type: input
+    id: citation
+    attributes:
+      label: Chapter, Section & Question Number
+      placeholder: Chapter 3, Exercise Q45
+    validations:
+      required: true
+  - type: dropdown
+    id: kit
+    attributes:
+      label: Reusable Kit
+      options:
+        - projectile
+        - blocks
+        - field
+        - Needs a new 2D/3D kit (open New Kit issue)
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Physics Concept & Teaching Moment (own words)
+      description: Briefly describe what parameters and interactive guess make this question click — do not paste verbatim textbook copy.
+      placeholder: Bank throw at fixed launch speed hitting a 1 m boat, illustrating complementary high/low angle bands.
+    validations:
+      required: true
+  - type: checkboxes
+    id: claiming
+    attributes:
+      label: Contributor Status
+      options:
+        - label: I want to build this PR myself (maintainers, please assign me!)

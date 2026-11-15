@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Beginner Contributor Guide
+    url: https://github.com/asb108/scifunlab-solutions/blob/main/CONTRIBUTING.md
+    about: Follow our 5-minute walkthrough to author and verify your first textbook solution.
+  - name: Live SciFunLab Solutions Hub
+    url: https://www.scifunlab.com/solutions
+    about: Browse published 2D and 3D textbook labs live on SciFunLab.

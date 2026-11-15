@@ -1,0 +1,38 @@
+name: Propose a New 2D or 3D Simulation Kit
+description: Suggest a reusable physics apparatus (optics, waves, circuits, rotation, etc.)
+title: "[Kit]: "
+labels: ["enhancement", "kit"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A reusable kit under `kits/<kit-id>/` powers many textbook problems across chapters. Both **2D SVG/Canvas/Motion kits** and **3D React Three Fiber kits** are welcome!
+  - type: input
+    id: kit-id
+    attributes:
+      label: Proposed Kit ID (kebab-case)
+      placeholder: circular-track
+    validations:
+      required: true
+  - type: dropdown
+    id: style
+    attributes:
+      label: Preferred Visual Style
+      options:
+        - 3D React Three Fiber bench (@scifunlab/solution-sdk/bench)
+        - 2D Interactive SVG / Canvas + Framer Motion
+        - Either (open to discussion)
+    validations:
+      required: true
+  - type: textarea
+    id: apparatus
+    attributes:
+      label: Apparatus, Movable Controls & Outputs
+      placeholder: Describe the physical bench/diagram, what the student guesses before running, what moves during playback, and which variable What-if varies.
+    validations:
+      required: true
+  - type: textarea
+    id: questions
+    attributes:
+      label: Textbook Questions This Kit Could Power
+      placeholder: List 2-3 chapter/question numbers this apparatus supports.

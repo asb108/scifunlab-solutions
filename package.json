@@ -26,6 +26,7 @@
     "start": "next start",
     "lint": "eslint app engine kits books scripts --max-warnings 0",
     "typecheck": "tsc --noEmit",
+    "solutions:new": "tsx --conditions=react-server scripts/new-solution.ts",
     "solutions:generate": "tsx scripts/generate-solutions-registry.ts --write --kits-dir kits --books-dir books",
     "solutions:check": "tsx scripts/generate-solutions-registry.ts --check --kits-dir kits --books-dir books && tsx --conditions=react-server scripts/check-solutions.ts"
   },

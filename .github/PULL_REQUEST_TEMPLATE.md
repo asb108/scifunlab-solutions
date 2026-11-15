@@ -3,11 +3,20 @@
 - [ ] New textbook solution(s) under `books/<book>/solutions/`
 - [ ] New or improved 2D/3D kit under `kits/<kit>/`
 - [ ] New book index under `books/<book>/`
+- [ ] Documentation / explanation polish
 
-## Checklist
+## Physics & Originality Check
 
-- [ ] Problem summary and steps are written in original phrasing (no verbatim textbook copy).
+- **Citation**: _(for example: HC Verma Vol 1, Ch 3, Exercise Q45)_
+- **Hand Calculation vs. Model Output vs. Textbook Answer**: _(briefly note values match)_
+- [ ] Problem summary and steps are written in 100% original phrasing (no verbatim textbook copy).
 - [ ] Added my `credits` entry (`name`, optional `github`, `role`).
-- [ ] Ran `npm run solutions:generate` and `npm run solutions:check`.
-- [ ] Ran `npm run typecheck`, `npm run lint`, and `npm run build`.
-- [ ] Did not modify files under `engine/` or `app/`.
+
+## Verification Checklist
+
+- [ ] Ran `npm run solutions:new -- --list` / `npm run solutions:generate`
+- [ ] Ran `npm run solutions:check`
+- [ ] Ran `npm run typecheck`
+- [ ] Ran `npm run lint`
+- [ ] Ran `npm run build` and checked the page live in the browser
+- [ ] Did not modify files under `engine/` or `app/`

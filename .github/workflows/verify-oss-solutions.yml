@@ -22,6 +22,8 @@ jobs:
           else
             npm install --no-audit --no-fund
           fi
+      - name: Check contributor CLI inventory
+        run: npm run solutions:new -- --list
       - name: Verify registries & solution definitions
         run: npm run solutions:check
       - name: Typecheck
