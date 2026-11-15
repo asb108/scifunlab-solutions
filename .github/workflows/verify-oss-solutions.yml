@@ -1,0 +1,32 @@
+name: Verify Textbook Solutions
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.20.2"
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --no-audit --no-fund
+          else
+            npm install --no-audit --no-fund
+          fi
+      - name: Verify registries & solution definitions
+        run: npm run solutions:check
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Lint & sandbox checks
+        run: npm run lint
+      - name: Next.js production build
+        run: npm run build

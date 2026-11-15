@@ -1,0 +1,101 @@
+@config "../tailwind.solutions.config.ts";
+
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --comic-yellow: #ffde59;
+  --comic-violet: #5b50ff;
+  --comic-ink: #0f172a;
+  --comic-violet-rgb: 91 80 255;
+}
+
+/* MathML from Temml is drawn by the browser's own maths font, so these pages
+   load no maths stylesheet or web fonts. Keep inline maths a touch larger than
+   the body text so subscripts stay readable on phones. */
+.math-inline math {
+  font-size: 1.08em;
+}
+
+.math-display {
+  display: block;
+  margin: 0.5rem 0;
+  padding-block: 2px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+
+.math-display math {
+  font-size: 1.15em;
+}
+
+/* Night-lab grid used behind the 3D viewport and on the home band. */
+.night-grid {
+  background-color: #14183a;
+  background-image:
+    linear-gradient(rgba(91, 80, 255, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 80, 255, 0.22) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Tap-to-explore links in the working: tap a symbol, its object lights up in 3D. */
+.scene-link {
+  display: inline;
+  padding: 0 0.15em;
+  border-bottom: 2px dashed var(--comic-violet);
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 150ms ease, box-shadow 150ms ease;
+}
+.scene-link:hover,
+.scene-link:focus-visible {
+  background: rgb(var(--comic-violet-rgb) / 0.12);
+  outline: none;
+}
+.scene-link[data-active] {
+  background: var(--comic-yellow);
+  border-bottom-style: solid;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+}
+
+/* Prototype bench: navy blueprint behind the 3D textbook scene. */
+.blueprint-grid {
+  background-color: #22389a;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    radial-gradient(ellipse at 45% 30%, #3f63e6 0%, #2a43b0 50%, #1b2a73 100%);
+  background-size: 24px 24px, 24px 24px, 100% 100%;
+}
+
+/* In-scene guide tags bob gently so the eye finds what to touch. */
+@keyframes guide-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.guide-bob {
+  animation: guide-bob 1.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .guide-bob { animation: none; }
+}
+
+/* Chalkboard marks inside a written line (hand-drawn SVG overlays sit beside this). */
+.board-mark {
+  position: relative;
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0 0.15em;
+}
+.board-tick {
+  display: inline-block;
+  width: 36px;
+  height: 28px;
+  vertical-align: middle;
+}
+.board-mark sub,
+.board-mark sup {
+  font-size: 0.7em;
+}

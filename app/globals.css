@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.shadow-neo {
+  box-shadow: 4px 4px 0 0 #0F172A;
+}
+
+.shadow-neo-lg {
+  box-shadow: 8px 8px 0 0 #0F172A;
+}
+
+.shadow-neo-sm {
+  box-shadow: 2px 2px 0 0 #0F172A;
+}
+
+.border-neo {
+  border: 2px solid #0F172A;
+}
+
+.border-neo-thick {
+  border: 3px solid #0F172A;
+}
+
+.comic-dot-bg {
+  background-image: radial-gradient(currentColor 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+}
